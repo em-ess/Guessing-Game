@@ -1,5 +1,7 @@
 """A number-guessing game."""
 
+from random import randint #import function to choose a random integer
+
 # Pseudocode
 
 # greet player
@@ -40,10 +42,26 @@ def guessing_game():
         print("Listen here bud. You should have typed a Y or N or I." 
               "But since you didn't I will force you to play the game.")
         
+    winning_num = randint(1,100)
     
     player_guess = input("Guess my number from 1 - 100 inclusive...\n>")
+
+    #need to make sure it is int since input outputs a string
     
+    #can do checks here
+    #hmm maybe i should make the prompt for getting player_guess its own function 
+
+    if int(player_guess) is not int or player_guess not in range(1,101):
+        player_guess == ("Uhmm ok let's try that again.. pick a NUMBER - integer - between 1 and 100...")
+
+    while player_guess != winning_num:
+        if player_guess > winning_num:
+            player_guess = input("Guess a higher number!\n>")
+    else:
+        
 
 
 def end_game(player_name):
     print(f"Bye {player_name}. Hope you have a good day! Or don't. It's your life :)")
+
+guessing_game()
